@@ -31,8 +31,11 @@
 </template>
 
 <script>
+import { HelloMixin } from '../mixins'
+
 export default {
   name: 'HelloWorld',
+  mixins: [HelloMixin],
   props: {
     msg: String
   }
