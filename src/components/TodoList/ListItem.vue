@@ -1,21 +1,31 @@
 <template>
-  <li>{{data.text}} <button @click="handleDelete">delete</button></li>
+  <li>
+    {{ data.text }}
+    <delete-button  :onClick="handleDelete"></delete-button>
+  </li>
 </template>
 
 
 <script>
+import DeleteButton from "./button";
+import store from "../../store";
+
 export default {
+  components: {
+    DeleteButton,
+  },
   props: {
     data: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
-
-  methods: {
-    handleDelete() {
-      this.$store.commit('deleteItem', this.data)
-    }
-  }
-}
+  setup(props) {
+    return {
+      handleDelete() {
+        store.commit("deleteItem", props.data);
+      },
+    };
+  },
+};
 </script>
