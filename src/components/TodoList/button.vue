@@ -7,11 +7,14 @@ export default {
     onClick: {
       type: Function,
       default: () => {}
+    },
+    item: {
+      type: Object,
+      default: () => {}
     }
   },
   render() {
-    console.log('render:', this)
-    return h("button", { class: "custome-button", onClick: this.onClick }, "delete");
+    return h("button", { class: "o", onClick: this.onClick }, "delete");
   },
 };  
 </script>
